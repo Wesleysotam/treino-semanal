@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de Código de Barras</title>
+    <script src="https://unpkg.com/quagga/dist/quagga.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #camera { width: 100%; max-width: 400px; margin: 10px auto; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Leitor de Código de Barras</h2>
+    <div id="camera"></div>
+    <button onclick="startScanner()">Iniciar Leitura</button>
+    <div id="output"></div>
+
+    <script>
+        function startScanner() {
+            Quagga.init({
+                inputStream: { type: "LiveStream", target: document.querySelector("#camera") },
+                decoder: { readers: ["ean_reader"] }
+            }, function (err) {
+                if (err) { console.error(err); return; }
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (result) {
+                const code = result.codeResult.code;
+                const now = new Date().toLocaleString();
+                document.getElementById("output").innerHTML += `<p>${now} - Código: ${code}</p>`;
+                Quagga.stop();
+            });
+        }
+    </script>
+</body>
+</html>

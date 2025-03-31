@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino Semanal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px;
+            background: #555;
+            overflow-x: auto;
+        }
+        
+        nav li {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        
+        nav li:hover {
+            background: #777;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
+        .treino-container {
+            display: none;
+            background: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        .exercicio {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .exercicio img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Treino Diário Mônica Zirtabe</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li onclick="mostrarTreino('segunda')">Segunda</li>
+            <li onclick="mostrarTreino('terca')">Terça</li>
+            <li onclick="mostrarTreino('quarta')">Quarta</li>
+            <li onclick="mostrarTreino('quinta')">Quinta</li>
+            <li onclick="mostrarTreino('sexta')">Sexta</li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div id="segunda" class="treino-container">
+            <h2>Segunda-feira - Peito, Ombro e Tríceps (A)</h2>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Supino reto com halteres ou barra - 4x12</p>
+                <img src="img/01supino.gif" alt="Supino reto">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Desenvolvimento de ombro com halteres - 3x10</p>
+                <img src="img/02Desenvolvimento.gif" alt="Desenvolvimento de ombro">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Elevação lateral (ombros) - 3x12</p>
+                <img src="img/03elevacao.gif" alt="Elevação lateral">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Tríceps francês ou corda na polia - 3x12</p>
+                <img src="img/04tricepfrancespolia.gif" alt="Tríceps francês">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Mergulho no banco (tríceps) - 3x12</p>
+                <img src="img/05mergulhobanco.webp" alt="Mergulho no banco">
+            </div>
+        </div>
+        <div id="terca" class="treino-container">
+            <h2>Terça-feira - Costas e bíceps (B)</h2>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Puxada aberta na polia - 4x10</p>
+                <img src="img/06puxada.gif" alt="Puxada aberta">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Remada curvada com halteres ou barra - 3x12</p>
+                <img src="img/07remadacurvada.gif" alt="Remada curvada">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Pulldown na polia - 3x12</p>
+                <img src="img/08Pulldown.gif" alt="Pulldown">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Rosca direta com halteres ou barra - 3x12</p>
+                <img src="img/09roscadireta.gif" alt="Rosca direta">
+            </div>
+            <div class="exercicio">
+                <input type="checkbox">
+                <p>Rosca martelo - 3x12</p>
+                <img src="img/10roscamartelo.gif" alt="Rosca Martelo">
+            </div>
+            
+        </div>
+    </main>
+    
+    <script>
+        function mostrarTreino(dia) {
+            document.querySelectorAll('.treino-container').forEach(el => el.style.display = 'none');
+            document.getElementById(dia).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
